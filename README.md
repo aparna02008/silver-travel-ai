@@ -1,17 +1,26 @@
 # Silver Travel AI 🚀
 
-A fully functional AI voice assistant web application for booking trains, buses, and movie tickets with multi-language support.
+A fully functional AI voice assistant web application for booking trains, buses, and movie tickets with multi-language support. Now includes a **World Clock** feature!
 
 ## 🌟 Features
 
+### Travel Booking
 ✨ **AI Voice Assistant** - Natural language conversation like a real travel agent
 🗣️ **Multi-language Support** - English, Tamil, Hindi, Telugu, Kannada, Malayalam, Bengali, Marathi
 🎫 **Multi-booking** - Train, Bus, and Movie tickets
 🎤 **Voice Input & Output** - Web Speech API + Browser Text-to-Speech
 💾 **Session Persistence** - Remember user preferences throughout booking
 📱 **Responsive Design** - Works on desktop and mobile
-🎟️ **Digital Tickets** - QR code enabled tickets
+🖼️ **Digital Tickets** - QR code enabled tickets
 📋 **Booking History** - Track all your bookings
+
+### World Clock ⏰
+🌍 **Multiple Timezones** - Track 25+ major world timezones
+⏱️ **Real-time Updates** - Live clock updates every second
+➕ **Add/Remove Zones** - Customize which timezones to display
+🔄 **Analog & Digital** - Toggle between display formats
+🎨 **Theme Support** - Dark and Light themes
+⚙️ **Settings Panel** - Control format, speed, and appearance
 
 ## 🛠️ Tech Stack
 
@@ -76,7 +85,10 @@ src/
 ├── components/
 │   ├── AIAssistant/          # AI conversation engine
 │   ├── BookingFlow/          # Train, Bus, Movie booking flows
-│   └── SearchResults/        # Search results display
+│   ├── SearchResults/        # Search results display
+│   ├── DigitalClock/         # Digital clock component
+│   ├── AnalogClock/          # Analog clock component
+│   └── ClockSettings/        # Clock settings panel
 ├── hooks/
 │   ├── useSessionStore.js    # Session management
 │   ├── useSpeechRecognition.js
@@ -90,17 +102,19 @@ src/
 │   ├── languageDetector.js   # Multi-language detection
 │   ├── sessionManager.js     # Local storage management
 │   ├── helpers.js            # Utility functions
-│   └── fallbackData.js       # Default data
+│   ├── fallbackData.js       # Default data
+│   └── timezoneUtils.js      # Timezone utilities
 ├── pages/
 │   ├── Home.jsx              # Landing page
 │   ├── Chat.jsx              # Chat interface
 │   ├── Confirmation.jsx      # Booking confirmation
 │   ├── Ticket.jsx            # Digital ticket display
-│   └── BookingHistory.jsx    # Previous bookings
+│   ├── BookingHistory.jsx    # Previous bookings
+│   └── ClockPage.jsx         # World Clock page
 └── App.jsx                   # Main app with routing
 ```
 
-## 🎯 Booking Flow
+## 🎫 Booking Flow
 
 ### Train Booking
 1. Select departure station
@@ -132,6 +146,28 @@ src/
 7. Review and confirm booking
 8. Get digital ticket with QR code
 
+## ⏰ Clock Features
+
+### Real-time Display
+- Updates every second
+- Shows time, date, and UTC offset
+- Multiple timezone support
+
+### Customization
+- Add/remove timezones
+- Switch between 12/24 hour format
+- Adjust update speed (100-5000ms)
+- Toggle between themes
+- Show analog clocks alongside digital
+
+### Supported Timezones
+25 major world timezones including:
+- Americas: New York, LA, Chicago, Toronto, São Paulo
+- Europe: London, Paris, Berlin, Moscow
+- Asia: Dubai, India, Bangkok, Singapore, Tokyo
+- Africa: Cairo, Lagos, Johannesburg
+- Pacific: Sydney, Auckland
+
 ## 🗣️ AI Assistant Capabilities
 
 - **Natural Conversation** - Speaks first with greeting
@@ -142,7 +178,7 @@ src/
 - **Voice Input/Output** - Complete speech interface
 - **Error Handling** - Graceful fallbacks for API failures
 
-## 🌍 Supported Languages
+## 🌐 Supported Languages
 
 | Code | Language | Region |
 |------|----------|--------|
@@ -219,8 +255,11 @@ https://elevenlabs.io/
 - [ ] QR code generates and downloads
 - [ ] Booking history persists
 - [ ] Session data saves correctly
+- [ ] World Clock displays all timezones
+- [ ] Clock settings work properly
+- [ ] Add/remove timezone functionality works
 
-## 📝 Environment Variables
+## 🔐 Environment Variables
 
 ```env
 # Optional - App works without these
@@ -245,6 +284,11 @@ VITE_ELEVENLABS_VOICE_ID=
 ### APIs returning no results
 - App automatically uses fallback data
 - Add real API keys in `.env`
+
+### Clock not updating
+- Refresh the page
+- Check browser console for errors
+- Ensure JavaScript is enabled
 
 ## 📱 Responsive Breakpoints
 
@@ -280,7 +324,15 @@ For issues or questions, create an issue on GitHub.
 - User authentication
 - Booking modifications
 - Customer support chat
+- Weather widget integration
+- Currency converter
+
+## 📚 Documentation
+
+- [Setup Guide](./SETUP.md)
+- [Clock Documentation](./docs/CLOCK.md)
+- [API Documentation](./docs/API.md)
 
 ---
 
-**Happy Booking! 🎫✈️🚌🎬**
+**Happy Booking & Timekeeping! 🎊⏰✈️🚌🎬**
